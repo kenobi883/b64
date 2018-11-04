@@ -4,8 +4,6 @@ import com.natpryce.hamkrest.assertion.assert
 import com.natpryce.hamkrest.equalTo
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.Arguments
-import org.junit.jupiter.params.provider.Arguments.arguments
 import org.junit.jupiter.params.provider.MethodSource
 
 /**
@@ -21,19 +19,8 @@ class Base64EncoderTests {
     }
 
     @ParameterizedTest
-    @MethodSource("base64Data")
+    @MethodSource("com.marcdenning.base64.StringTestFixtures#base64Data")
     fun `properly encodes the string`(input: String, output: String) {
         assert.that(base64Encoder.encode(input), equalTo(output))
-    }
-
-    companion object {
-        @JvmStatic
-        fun base64Data(): Collection<Arguments> {
-            return listOf(
-                    arguments("", ""),
-                    arguments("f", "Zg=="),
-                    arguments("foobar", "Zm9vYmFy")
-            )
-        }
     }
 }

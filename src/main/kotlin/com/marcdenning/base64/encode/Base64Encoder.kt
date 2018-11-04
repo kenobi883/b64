@@ -4,5 +4,6 @@ import java.util.*
 
 class Base64Encoder : Encoder {
 
-    override fun encode(source: String): String = Base64.getEncoder().encodeToString(source.toByteArray(Charsets.US_ASCII))
+    override fun encode(source: String): String = Base64.getEncoder()
+            .encodeToString(source.toByteArray(Charsets.US_ASCII))
 }
