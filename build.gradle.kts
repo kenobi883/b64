@@ -15,6 +15,8 @@ repositories {
 
 dependencies {
     compile(kotlin("stdlib-jdk8"))
+    implementation("com.github.ajalt", "clikt", "1.5.0")
+    testImplementation("com.nhaarman.mockitokotlin2", "mockito-kotlin", "2.0.0")
     testCompile("com.natpryce", "hamkrest", "1.6.0.0")
     testCompile("org.junit.jupiter:junit-jupiter-api:5.3.1")
     testCompile("org.junit.jupiter:junit-jupiter-params:5.3.1")
@@ -23,6 +25,11 @@ dependencies {
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+configure<ApplicationPluginConvention> {
+    applicationName = "b64"
+    mainClassName = "com.marcdenning.base64.Base64CliKt"
 }
 
 tasks.withType<KotlinCompile> {
