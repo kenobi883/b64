@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.marcdenning"
-version = "0.1.0-SNAPSHOT"
+version = "1.0.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -30,6 +30,7 @@ configure<JavaPluginConvention> {
 configure<ApplicationPluginConvention> {
     applicationName = "b64"
     mainClassName = "com.marcdenning.base64.Base64CliKt"
+    applicationDefaultJvmArgs = listOf("-Dapplication.version=${version}")
 }
 
 tasks.withType<KotlinCompile> {

@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
 
         Base64Command()
                 .subcommands(EncodeCommand(System.out, encoder), DecodeCommand(System.out, decoder))
-                .versionOption("0.1.0")
+                .versionOption(System.getProperty("application.version", "1.0.0"))
                 .main(args)
 
         exitProcess(0)
