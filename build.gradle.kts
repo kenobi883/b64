@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     java
     application
+    jacoco
     kotlin("jvm") version "1.2.51"
 }
 
@@ -15,12 +16,16 @@ repositories {
 
 dependencies {
     compile(kotlin("stdlib-jdk8"))
-    implementation("com.github.ajalt", "clikt", "1.5.0")
-    testImplementation("com.nhaarman.mockitokotlin2", "mockito-kotlin", "2.0.0")
+    compile("com.github.ajalt", "clikt", "1.5.0")
+    testCompile("com.nhaarman.mockitokotlin2", "mockito-kotlin", "2.0.0")
     testCompile("com.natpryce", "hamkrest", "1.6.0.0")
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.3.1")
-    testCompile("org.junit.jupiter:junit-jupiter-params:5.3.1")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.3.1")
+    testCompile("org.junit.jupiter", "junit-jupiter-api", "5.3.1")
+    testCompile("org.junit.jupiter", "junit-jupiter-params", "5.3.1")
+    testRuntime("org.junit.jupiter", "junit-jupiter-engine", "5.3.1")
+}
+
+jacoco {
+    toolVersion = "0.8.2"
 }
 
 configure<JavaPluginConvention> {
@@ -42,4 +47,23 @@ tasks.withType<Test> {
     testLogging {
         events("passed", "skipped", "failed")
     }
+    configure<JacocoTaskExtension> {
+        isAppend = false
+    }
 }
+
+tasks.withType<JacocoReport> {
+    reports.html.isEnabled = true
+    reports.xml.isEnabled = true
+
+    sourceDirectories = files("src/main/kotlin")
+
+    // After evaluate hook necessary to override default class directories and apply exclude rule
+    afterEvaluate {
+        classDirectories = files(fileTree("build/classes/kotlin/main") {
+            exclude("**/Base64*.*")
+        })
+    }
+}
+
+tasks[JavaBasePlugin.CHECK_TASK_NAME].finalizedBy("jacocoTestReport")
