@@ -4,6 +4,8 @@
 
 [![Travis (.org)](https://img.shields.io/travis/kenobi883/b64.svg?style=flat-square)](https://travis-ci.org/kenobi883/b64)
 [![Codecov](https://img.shields.io/codecov/c/github/kenobi883/b64.svg?style=flat-square)](https://codecov.io/gh/kenobi883/b64)
+![License](https://img.shields.io/github/license/kenobi883/b64.svg?style=flat-square)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/kenobi883/b64.svg?style=flat-square)
 
 ## Build
 
