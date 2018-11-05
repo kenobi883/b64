@@ -2,6 +2,9 @@
 
 > Base64 encode/decode CLI application.
 
+[![Travis (.org)](https://img.shields.io/travis/kenobi883/b64.svg?style=flat-square)](https://travis-ci.org/kenobi883/b64)
+[![Codecov](https://img.shields.io/codecov/c/github/kenobi883/b64.svg?style=flat-square)](https://codecov.io/gh/kenobi883/b64)
+
 ## Build
 
 Build the CLI using Gradle. Execute the following command to generate tar and zip archives in `build/distributions`:
