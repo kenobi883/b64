@@ -11,9 +11,10 @@ after_success:
 deploy:
   provider: releases
   api_key: $GITHUB_OAUTH_TOKEN
+  file_glob: true
   file:
-  - $HOME/build/distributions/b64*.tar
-  - $HOME/build/distributions/b64*.zip
+    - $TRAVIS_BUILD_DIR/build/distributions/b64*.tar
+    - $TRAVIS_BUILD_DIR/build/distributions/b64*.zip
   skip_cleanup: true
   on:
     tags: true

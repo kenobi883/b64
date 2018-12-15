@@ -35,7 +35,7 @@ configure<JavaPluginConvention> {
 configure<ApplicationPluginConvention> {
     applicationName = "b64"
     mainClassName = "com.marcdenning.base64.Base64CliKt"
-    applicationDefaultJvmArgs = listOf("-Dapplication.version=${version}")
+    applicationDefaultJvmArgs = listOf("-Dapplication.version=$version")
 }
 
 tasks.withType<KotlinCompile> {

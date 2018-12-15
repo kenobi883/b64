@@ -7,6 +7,23 @@
 ![License](https://img.shields.io/github/license/kenobi883/b64.svg?style=flat-square)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/kenobi883/b64.svg?style=flat-square)
 
+## Install
+
+Execute the install script to download pre-built binaries, extract them, and add them to your user's `PATH`.
+
+```sh
+curl https://github.com/kenobi883/b64/blob/master/install.sh >> bash
+```
+
+**Note:** This application requires a Java runtime of 8 or higher to be on your `PATH`.
+ 
+## Usage
+
+- `b64 --help` - Print the help page and exit.
+- `b64 --version` - Print the version and exit.
+- `b64 encode <INPUT>` - Base64 encode the given string and exit. Quotes should be used for strings containing spaces.
+- `b64 decode <INPUT>` - Base64 decode the given string and exit.
+
 ## Build
 
 Build the CLI using Gradle. Execute the following command to generate tar and zip archives in `build/distributions`:
@@ -18,15 +35,6 @@ Build the CLI using Gradle. Execute the following command to generate tar and zi
 Extract an archive and optionally add the resulting `bin` folder to your `PATH`:
 
 ```sh
-tar -C build/distributions -xf build/distributions/b64-1.0.0-SNAPSHOT.tar
-export PATH="${PATH}:$(pwd)/build/distributions/b64-1.0.0-SNAPSHOT/bin"
+tar -C build/distributions -xf build/distributions/b64-${VERSION}.tar
+export PATH="${PATH}:$(pwd)/build/distributions/b64-${VERSION}/bin"
 ```
-
-**Note:** This application requires a Java runtime of 8 or higher to be on your `PATH`.
-
-## Usage
-
-- `b64 --help` - Print the help page and exit.
-- `b64 --version` - Print the version and exit.
-- `b64 encode <INPUT>` - Base64 encode the given string and exit. Quotes should be used for strings containing spaces.
-- `b64 decode <INPUT>` - Base64 decode the given string and exit.
