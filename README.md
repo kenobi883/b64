@@ -12,7 +12,7 @@
 Execute the install script to download pre-built binaries, extract them, and add them to your user's `PATH`.
 
 ```sh
-curl https://github.com/kenobi883/b64/blob/master/install.sh >> bash
+curl https://github.com/kenobi883/b64/blob/master/install.sh >> .
 ```
 
 **Note:** This application requires a Java runtime of 8 or higher to be on your `PATH`.
