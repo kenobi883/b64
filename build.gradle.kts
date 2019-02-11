@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.marcdenning"
-version = "1.0.0-RC4"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -53,11 +53,11 @@ tasks.withType<JacocoReport> {
     reports.html.isEnabled = true
     reports.xml.isEnabled = true
 
-    sourceDirectories.plus(files("src/main/kotlin"))
+    sourceDirectories.setFrom(files("src/main/kotlin"))
 
     // After evaluate hook necessary to override default class directories and apply exclude rule
     afterEvaluate {
-        classDirectories.plus(files(fileTree("build/classes/kotlin/main") {
+        classDirectories.setFrom(files(fileTree("build/classes/kotlin/main") {
             exclude("**/Base64*.*")
         }))
     }

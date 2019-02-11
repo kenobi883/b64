@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set up
-export VERSION=1.0.0-RC4
+export VERSION=1.0.0
 export ARCHIVE_FILE=b64-${VERSION}.tar.gz
 export B64_BIN_DIR=${HOME}/bin/b64-${VERSION}/bin
 
