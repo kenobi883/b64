@@ -12,10 +12,7 @@ curl -L -o ${ARCHIVE_FILE} https://github.com/kenobi883/b64/releases/download/v$
 mkdir -p ${HOME}/bin
 tar -C ${HOME}/bin -xf ${ARCHIVE_FILE}
 echo "PATH=\"${PATH}:${B64_BIN_DIR}\"" >> ${HOME}/.profile
-PATH="${PATH}:${B64_BIN_DIR}"
-
-# Test install
-b64 --version
+echo "PATH=\"${PATH}:${B64_BIN_DIR}\""
 
 # Clean up
 rm -f ${ARCHIVE_FILE}
